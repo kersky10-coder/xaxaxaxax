@@ -31,10 +31,15 @@ def home():
         img:hover {
             transform: scale(1.02);
         }
+        .error {
+            color: #ff0000;
+            text-align: center;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
-    <img src="https://i.imgur.com/8QjL5vP.png" alt="EGOR">
+    <img src="https://i.imgur.com/8QjL5vP.png" alt="EGOR" onerror="this.style.display='none'; document.body.innerHTML='<div class=error>Фото сломалось! 😅<br>Перезагрузи страницу или напиши Grok — добавлю новое.</div>'">
 </body>
 </html>
     '''
