@@ -1,7 +1,6 @@
-from flask import Flask, send_from_directory
-import os
+from flask import Flask
 
-app = Flask(__name__, static_folder='.')
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -11,62 +10,72 @@ def home():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EGOR GALLERY</title>
+    <title>EGOR 2025</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #000;
-            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             font-family: 'Arial', sans-serif;
-            padding: 20px;
-            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        .icon-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 30px;
+        }
+        .icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #ff6b6b);
+            animation: rotate 4s linear infinite, pulse 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 50px rgba(255, 107, 107, 0.5);
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
+            100% { transform: scale(1.1); box-shadow: 0 0 60px rgba(78, 205, 196, 0.6); }
         }
         h1 {
-            margin: 20px 0;
-            font-size: 2.5rem;
-            text-shadow: 0 0 10px gold;
+            font-size: 3rem;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        img {
-            max-width: 100%;
-            max-height: 70vh;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px gold;
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px #ff6b6b); }
+            to { filter: drop-shadow(0 0 20px #4ecdc4); }
         }
         .footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #aaa;
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <h1>EGOR GALLERY</h1>
-    <div class="gallery">
-        <img src="/download.jfif" alt="EGOR 1" onerror="this.style.display='none'">
-        <img src="/photo_2025-11-15_00-06-20.jpg" alt="EGOR 2" onerror="this.style.display='none'">
+    <div class="icon-container">
+        <div class="icon"></div>
     </div>
-    <div class="footer">© 2025 · kersky10-coder · xaxaxaxax.onrender.com</div>
+    <h1>EGOR 2025</h1>
+    <div class="footer">© kersky10-coder</div>
 </body>
 </html>
     '''
-
-# Чтобы Flask отдавал файлы из корня репозитория
-@app.route('/<path:filename>')
-def serve_file(filename):
-    return send_from_directory('.', filename)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
