@@ -10,7 +10,7 @@ def home():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 MEME</title>
+    <title>2025 MEME MODE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -25,6 +25,19 @@ def home():
             text-align: center;
             padding: 20px;
         }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px #ff6b6b); }
+            to { filter: drop-shadow(0 0 20px #4ecdc4); }
+        }
         .meme-container {
             position: relative;
             width: 80%;
@@ -33,40 +46,30 @@ def home():
         }
         .meme-bg {
             width: 100%;
-            height: auto;
+            height: 300px;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4); /* Градиент вместо фото для стиля пина */
-        }
-        .meme-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
             font-weight: bold;
             color: #fff;
             text-shadow: 2px 2px 4px #000;
             animation: bounce 2s infinite;
         }
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, -50%) translateY(0); }
-            40% { transform: translate(-50%, -50%) translateY(-10px); }
-            60% { transform: translate(-50%, -50%) translateY(-5px); }
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
         }
         .description {
             max-width: 400px;
             font-size: 1.1rem;
             line-height: 1.5;
             opacity: 0.8;
+            margin-top: 10px;
         }
         .footer {
             margin-top: 30px;
@@ -78,8 +81,7 @@ def home():
 <body>
     <h1>2025 MEME MODE</h1>
     <div class="meme-container">
-        <div class="meme-bg"></div>
-        <div class="meme-text">Funny Reaction! 😂</div>
+        <div class="meme-bg">Funny Reaction! 😂</div>
     </div>
     <p class="description">Мем из Pinterest: забавная реакция на 2025 год. Стиль — юмор, яркие цвета, типичная funny picture. Добавь свой текст!</p>
     <div class="footer">© kersky10-coder | Inspired by Pinterest</div>
