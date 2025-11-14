@@ -10,7 +10,7 @@ def home():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EGOR 2025</title>
+    <title>2025 MEME</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -22,57 +22,67 @@ def home():
             min-height: 100vh;
             font-family: 'Arial', sans-serif;
             color: #fff;
-            overflow: hidden;
+            text-align: center;
+            padding: 20px;
         }
-        .icon-container {
+        .meme-container {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 80%;
+            max-width: 500px;
             margin-bottom: 30px;
         }
-        .icon {
+        .meme-bg {
             width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #ff6b6b);
-            animation: rotate 4s linear infinite, pulse 2s ease-in-out infinite alternate;
-            box-shadow: 0 0 50px rgba(255, 107, 107, 0.5);
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4); /* Градиент вместо фото для стиля пина */
         }
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .meme-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+            animation: bounce 2s infinite;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
-            100% { transform: scale(1.1); box-shadow: 0 0 60px rgba(78, 205, 196, 0.6); }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            40% { transform: translate(-50%, -50%) translateY(-10px); }
+            60% { transform: translate(-50%, -50%) translateY(-5px); }
         }
         h1 {
-            font-size: 3rem;
-            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: glow 2s ease-in-out infinite alternate;
         }
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 10px #ff6b6b); }
-            to { filter: drop-shadow(0 0 20px #4ecdc4); }
+        .description {
+            max-width: 400px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            opacity: 0.8;
         }
         .footer {
-            position: absolute;
-            bottom: 20px;
+            margin-top: 30px;
             font-size: 0.8rem;
             color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="icon-container">
-        <div class="icon"></div>
+    <h1>2025 MEME MODE</h1>
+    <div class="meme-container">
+        <div class="meme-bg"></div>
+        <div class="meme-text">Funny Reaction! 😂</div>
     </div>
-    <h1>EGOR 2025</h1>
-    <div class="footer">© kersky10-coder</div>
+    <p class="description">Мем из Pinterest: забавная реакция на 2025 год. Стиль — юмор, яркие цвета, типичная funny picture. Добавь свой текст!</p>
+    <div class="footer">© kersky10-coder | Inspired by Pinterest</div>
 </body>
 </html>
     '''
