@@ -1,3 +1,10 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return '''
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -12,6 +19,8 @@
             padding: 40px 20px;
             display: flex;
             justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
         }
         .pin-card {
             width: 100%;
@@ -20,7 +29,7 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.2s;
         }
         .pin-card:hover {
             transform: translateY(-4px);
@@ -30,7 +39,6 @@
             width: 100%;
             height: 400px;
             background: #eee;
-            border-bottom: 1px solid #ddd;
         }
         .content {
             padding: 16px;
@@ -52,7 +60,6 @@
             height: 32px;
             background: #f0f0f0;
             border-radius: 50px;
-            margin-top: 8px;
         }
     </style>
 </head>
@@ -68,3 +75,7 @@
     </div>
 </body>
 </html>
+    '''
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
